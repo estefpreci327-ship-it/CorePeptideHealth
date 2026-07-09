@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   font-family: Arial, sans-serif;
@@ -5,88 +9,195 @@ body {
   color: #102033;
 }
 
-header {
-  background: linear-gradient(135deg, #07172d, #0b4f6c);
-  color: white;
-  text-align: center;
-  padding: 70px 20px;
-}
-
-header h1 {
-  font-size: 42px;
-}
-
-.btn, button {
-  background: #1aa7c7;
-  color: white;
-  border: none;
-  padding: 12px 18px;
-  border-radius: 8px;
-  text-decoration: none;
-  cursor: pointer;
-  font-weight: bold;
-}
-
-nav {
-  text-align: center;
-  padding: 20px;
-}
-
-nav button {
-  margin: 5px;
-}
-
-.products {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-  gap: 20px;
-  padding: 25px;
-}
-
-.product {
+.language-switch {
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  z-index: 1000;
   background: white;
-  border-radius: 14px;
-  padding: 18px;
-  text-align: center;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-}
-
-.product img {
-  width: 100%;
-  height: 180px;
-  object-fit: contain;
+  padding: 8px;
   border-radius: 10px;
-}
-
-.price {
-  font-size: 22px;
-  font-weight: bold;
-  color: #0b4f6c;
-}
-
-.cart, .education {
-  margin: 25px;
-  padding: 25px;
-  background: white;
-  border-radius: 14px;
-}
-
-footer {
-  background: #07172d;
-  color: white;
-  text-align: center;
-  padding: 20px;
-} .language-switch {
-  position: fixed;
-  top: 15px;
-  right: 15px;
-  z-index: 1000;
-  background: white;
-  padding: 8px;
-  border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0,0,0,.15);
+  box-shadow: 0 4px 12px rgba(0,0,0,.15);
 }
 
 .language-switch button {
-  margin: 3px;
+  margin: 3px;
+  border: none;
+  padding: 8px 10px;
+  border-radius: 8px;
+  background: #0b4f6c;
+  color: white;
+  cursor: pointer;
+}
+
+.hero {
+  min-height: 75vh;
+  background: linear-gradient(135deg, #06172d, #0b4f6c, #1aa7c7);
+  color: white;
+  text-align: center;
+  padding: 120px 25px 80px;
+}
+
+.hero h1 {
+  font-size: 46px;
+  margin-bottom: 15px;
+}
+
+.hero p {
+  font-size: 20px;
+  max-width: 700px;
+  margin: auto;
+}
+
+.hero-buttons {
+  margin-top: 30px;
+}
+
+.btn {
+  display: inline-block;
+  background: #1aa7c7;
+  color: white;
+  padding: 13px 20px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: bold;
+  margin: 6px;
+}
+
+.btn.secondary {
+  background: white;
+  color: #0b4f6c;
+}
+
+nav {
+  background: white;
+  text-align: center;
+  padding: 15px;
+  box-shadow: 0 3px 10px rgba(0,0,0,.08);
+  position: sticky;
+  top: 0;
+  z-index: 500;
+}
+
+nav a {
+  margin: 10px;
+  text-decoration: none;
+  color: #0b4f6c;
+  font-weight: bold;
+}
+
+.section {
+  padding: 60px 25px;
+  max-width: 1100px;
+  margin: auto;
+  text-align: center;
+}
+
+.section h2 {
+  color: #0b3d5c;
+  font-size: 34px;
+}
+
+.section p {
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+}
+
+.card {
+  background: white;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 5px 18px rgba(0,0,0,.12);
+}
+
+.education {
+  background: #eef6fb;
+  max-width: none;
+}
+
+.education-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  margin-top: 35px;
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.guide {
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 5px 18px rgba(0,0,0,.15);
+  transition: .3s;
+}
+
+.guide:hover {
+  transform: translateY(-8px);
+}
+
+.guide img {
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
+}
+
+.guide h3 {
+  padding: 18px;
+  color: #0b3d5c;
+}
+
+.faq details {
+  background: white;
+  margin: 15px auto;
+  padding: 18px;
+  border-radius: 12px;
+  max-width: 800px;
+  text-align: left;
+  box-shadow: 0 4px 12px rgba(0,0,0,.08);
+}
+
+.faq summary {
+  font-weight: bold;
+  cursor: pointer;
+  color: #0b4f6c;
+}
+
+.contact {
+  background: white;
+  border-radius: 18px;
+  margin-bottom: 40px;
+}
+
+footer {
+  background: #06172d;
+  color: white;
+  text-align: center;
+  padding: 25px;
+}
+
+@media (max-width: 600px) {
+  .hero h1 {
+    font-size: 34px;
+  }
+
+  .hero p {
+    font-size: 17px;
+  }
+
+  .language-switch {
+    top: 8px;
+    right: 8px;
+  }
+
+  .guide img {
+    height: 330px;
+  }
 }

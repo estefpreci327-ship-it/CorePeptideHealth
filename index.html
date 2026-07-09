@@ -240,13 +240,44 @@ function setLanguage(language){
 window.onload=function(){
   setLanguage(localStorage.getItem("language") || "en");
 };
-</script>
+ </footer>
+
 <div id="klowModal" class="modal">
   <span class="close" onclick="closeKlowGallery()">×</span>
   <button class="arrow left" onclick="changeKlowSlide(-1)">‹</button>
   <img id="klowImage" src="images/klow-guide-1.jpg" alt="KLOW Guide">
   <button class="arrow right" onclick="changeKlowSlide(1)">›</button>
-  <p id="klowCounter">1 / 14</p>
+  <p id="klowCounter">1 / 3</p>
 </div>
+
+<script> 
+   let klowSlide = 1;
+const klowTotal = 3;
+
+function openKlowGallery() {
+    document.getElementById("klowModal").style.display = "block";
+    showKlowSlide();
+}
+
+function closeKlowGallery() {
+    document.getElementById("klowModal").style.display = "none";
+}
+
+function changeKlowSlide(direction) {
+    klowSlide += direction;
+
+    if (klowSlide < 1) klowSlide = klowTotal;
+    if (klowSlide > klowTotal) klowSlide = 1;
+
+    showKlowSlide();
+}
+
+function showKlowSlide() {
+    document.getElementById("klowImage").src =
+        "images/klow-guide-" + klowSlide + ".jpg";
+    document.getElementById("klowCounter").textContent =
+        klowSlide + " / " + klowTotal;
+}
+</script>
 </body>
 </html>

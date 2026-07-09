@@ -32,4 +32,10 @@ function filterProducts(category) {
       product.style.display = "none";
     }
   });
+} function setLanguage(language) {
+  const elements = document.querySelectorAll("[data-en]");
+
+  elements.forEach(element => {
+    element.textContent = element.getAttribute(`data-${language}`);
+  });
 }

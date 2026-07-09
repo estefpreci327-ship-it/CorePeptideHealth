@@ -242,6 +242,12 @@ window.onload=function(){
   setLanguage(localStorage.getItem("language") || "en");
 };
 </script>
-
+<div id="klowModal" class="modal">
+  <span class="close" onclick="closeKlowGallery()">×</span>
+  <button class="arrow left" onclick="changeKlowSlide(-1)">‹</button>
+  <img id="klowImage" src="images/klow-guide-1.jpg" alt="KLOW Guide">
+  <button class="arrow right" onclick="changeKlowSlide(1)">›</button>
+  <p id="klowCounter">1 / 14</p>
+</div>
 </body>
 </html>

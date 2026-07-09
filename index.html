@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Core Peptides Health</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header>
+  <h1>Core Peptides Health</h1>
+  <p>Premium research peptides and educational resources</p>
+  <a href="#shop" class="btn">Shop Products</a>
+</header>
+
+<nav>
+  <button onclick="filterProducts('all')">All</button>
+  <button onclick="filterProducts('weight')">Weight</button>
+  <button onclick="filterProducts('recovery')">Recovery</button>
+  <button onclick="filterProducts('cognitive')">Cognitive</button>
+</nav>
+
+<section id="shop" class="products">
+
+  <div class="product weight">
+    <img src="images/semaglutide.jpg" alt="Semaglutide">
+    <h2>Semaglutide</h2>
+    <p class="price">$125</p>
+    <p>Research peptide. For research use only.</p>
+    <button onclick="addToCart('Semaglutide', 125)">Add to Cart</button>
+  </div>
+
+  <div class="product recovery">
+    <img src="images/bpc157.jpg" alt="BPC-157">
+    <h2>BPC-157</h2>
+    <p class="price">$55</p>
+    <p>Research peptide. For research use only.</p>
+    <button onclick="addToCart('BPC-157', 55)">Add to Cart</button>
+  </div>
+
+  <div class="product recovery">
+    <img src="images/tb500.jpg" alt="TB-500">
+    <h2>TB-500</h2>
+    <p class="price">$60</p>
+    <p>Research peptide. For research use only.</p>
+    <button onclick="addToCart('TB-500', 60)">Add to Cart</button>
+  </div>
+
+  <div class="product cognitive">
+    <img src="images/semax.jpg" alt="Semax">
+    <h2>Semax</h2>
+    <p class="price">$45</p>
+    <p>Research peptide. For research use only.</p>
+    <button onclick="addToCart('Semax', 45)">Add to Cart</button>
+  </div>
+
+</section>
+
+<section class="cart">
+  <h2>Cart</h2>
+  <ul id="cart-items"></ul>
+  <h3>Total: $<span id="total">0</span></h3>
+  <a class="btn" href="YOUR_GOOGLE_FORM_LINK_HERE" target="_blank">Checkout / Order Form</a>
+</section>
+
+<section class="education">
+  <h2>Learn About Peptides</h2>
+  <p>Educational information about peptide categories, storage, and research use.</p>
+</section>
+
+<footer>
+  <p>For research use only. Not for human consumption.</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

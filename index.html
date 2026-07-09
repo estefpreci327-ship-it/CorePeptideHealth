@@ -1,48 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Core Peptides Health</title>
 
 <style>
 *{box-sizing:border-box}
-body{margin:0;font-family:Arial,sans-serif;background:#f4f9fc;color:#071b33}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:Arial,sans-serif;background:#f5fbff;color:#071b33}
 a{text-decoration:none}
-header{background:linear-gradient(135deg,#020b1f,#063b5c,#00a9c7);color:white;padding:35px 8% 90px}
-.nav{display:flex;justify-content:space-between;align-items:center;gap:15px;flex-wrap:wrap}
+header{min-height:100vh;background:radial-gradient(circle at right,#00bcd4 0,#063b5c 35%,#020b1f 75%);color:white;padding:30px 8%;position:relative;overflow:hidden}
+header::after{content:"🧬";position:absolute;right:8%;top:22%;font-size:230px;opacity:.18}
+.nav{display:flex;justify-content:space-between;align-items:center;gap:15px;flex-wrap:wrap;position:relative;z-index:2}
 .logo{font-weight:900;letter-spacing:3px}
-.nav a,.lang button{color:white;background:transparent;border:1px solid #1bd5ef;padding:8px 12px;border-radius:8px}
-.hero{margin-top:80px;max-width:650px}
-.hero h1{font-size:52px;line-height:1.05;margin:10px 0}
+.nav a,.lang button{color:white;background:rgba(255,255,255,.05);border:1px solid #1bd5ef;padding:9px 13px;border-radius:9px;margin:4px}
+.hero{margin-top:120px;max-width:720px;position:relative;z-index:2}
+.hero small{color:#1bd5ef;font-weight:bold;letter-spacing:2px}
+.hero h1{font-size:58px;line-height:1.05;margin:18px 0}
 .hero span{color:#1bd5ef}
-.hero p{font-size:20px;line-height:1.5}
-.btn{display:inline-block;background:#08bcd4;color:white;padding:14px 22px;border-radius:10px;font-weight:bold;margin:8px}
-.btn.outline{background:transparent;border:1px solid white}
-section{padding:65px 8%;text-align:center}
-h2{font-size:34px;color:#071b55}
-.intro{display:grid;grid-template-columns:1fr 1fr;gap:35px;align-items:center;text-align:left}
-.molecule{font-size:130px;text-align:center}
-.guides,.categories,.features{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:25px;margin-top:35px}
-.card{background:white;border-radius:18px;padding:25px;box-shadow:0 8px 25px rgba(0,0,0,.1)}
-.guide{background:#061b38;color:white;border-radius:18px;overflow:hidden;box-shadow:0 8px 25px rgba(0,0,0,.18)}
-.guide img{width:100%;height:300px;object-fit:cover}
-.guide div{padding:20px}
-.category{background:white;border:1px solid #dceaf2;border-radius:16px;padding:25px;font-weight:bold}
+.hero p{font-size:21px;line-height:1.5}
+.btn{display:inline-block;background:#08bcd4;color:white;padding:14px 22px;border-radius:10px;font-weight:bold;margin:8px;box-shadow:0 8px 20px rgba(0,188,212,.3)}
+.btn.outline{background:transparent;border:1px solid white;box-shadow:none}
+section{padding:75px 8%;text-align:center}
+h2{font-size:36px;color:#071b55}
+p{line-height:1.6}
+.intro{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;text-align:left}
+.molecule{font-size:150px;text-align:center}
+.path,.guides,.categories,.features{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:25px;margin-top:35px}
+.card,.category{background:white;border-radius:18px;padding:28px;box-shadow:0 8px 25px rgba(0,0,0,.09)}
+.card h3,.category h3{color:#073b64}
+.guide{background:#061b38;color:white;border-radius:18px;overflow:hidden;box-shadow:0 10px 28px rgba(0,0,0,.2);transition:.3s}
+.guide:hover,.category:hover,.card:hover{transform:translateY(-6px)}
+.guide img{width:100%;height:310px;object-fit:cover}
+.guide div{padding:22px}
+.category{border:1px solid #dceaf2;font-weight:bold}
+.icon{font-size:38px;margin-bottom:10px}
 .notice{background:#eaf7fb;border-radius:14px;padding:18px;margin-top:30px;color:#0b4f6c}
-.dark{background:#03142b;color:white}
+.dark{background:linear-gradient(135deg,#020b1f,#062647);color:white}
 .dark h2{color:white}
-.instagram{background:#062647;border-radius:18px;padding:30px;max-width:650px;margin:30px auto}
-footer{background:#020b1f;color:white;padding:40px 8%;text-align:center}
-@media(max-width:700px){
-.hero h1{font-size:38px}
+.instagram{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:20px;padding:32px;max-width:700px;margin:35px auto}
+.float-ig{position:fixed;right:18px;bottom:18px;background:#08bcd4;color:white;padding:14px 17px;border-radius:999px;font-weight:bold;z-index:999;box-shadow:0 8px 25px rgba(0,0,0,.25)}
+footer{background:#020b1f;color:white;padding:45px 8%;text-align:center}
+@media(max-width:750px){
+header{padding:25px 6%;min-height:90vh}
+header::after{font-size:130px;right:5%;top:35%}
+.hero{margin-top:80px}
+.hero h1{font-size:39px}
+.hero p{font-size:17px}
 .intro{grid-template-columns:1fr;text-align:center}
-.molecule{font-size:90px}
+.molecule{font-size:95px}
+.nav{justify-content:center;text-align:center}
 }
 </style>
 </head>
 
 <body>
+
+<a class="float-ig" href="https://www.instagram.com/corepeptidehealth" target="_blank">Instagram</a>
 
 <header>
   <div class="nav">
@@ -60,16 +75,16 @@ footer{background:#020b1f;color:white;padding:40px 8%;text-align:center}
   </div>
 
   <div class="hero">
-    <p data-en="SCIENCE. QUALITY. CONFIDENCE." data-es="CIENCIA. CALIDAD. CONFIANZA.">SCIENCE. QUALITY. CONFIDENCE.</p>
-    <h1 data-en="Your trusted source for premium research peptides."
-        data-es="Tu fuente confiable para péptidos de investigación.">
-      Your trusted source for premium research peptides.
+    <small data-en="SCIENCE. QUALITY. CONFIDENCE." data-es="CIENCIA. CALIDAD. CONFIANZA.">SCIENCE. QUALITY. CONFIDENCE.</small>
+    <h1 data-en="Advancing research through education and quality."
+        data-es="Impulsando la investigación con educación y calidad.">
+      Advancing research through education and quality.
     </h1>
-    <p data-en="Educational resources, peptide categories, and product information in one place."
-       data-es="Recursos educativos, categorías de péptidos e información de productos en un solo lugar.">
-      Educational resources, peptide categories, and product information in one place.
+    <p data-en="Explore peptide education, research categories, and product information in one clean, bilingual platform."
+       data-es="Explora educación sobre péptidos, categorías de investigación e información de productos en una plataforma bilingüe.">
+      Explore peptide education, research categories, and product information in one clean, bilingual platform.
     </p>
-    <a href="#learn" class="btn" data-en="Learn About Peptides" data-es="Aprende Sobre Péptidos">Learn About Peptides</a>
+    <a href="#learn" class="btn" data-en="Start Learning" data-es="Empieza a Aprender">Start Learning</a>
     <a href="#contact" class="btn outline" data-en="Message Us" data-es="Mándanos Mensaje">Message Us</a>
   </div>
 </header>
@@ -88,17 +103,27 @@ footer{background:#020b1f;color:white;padding:40px 8%;text-align:center}
   </div>
 </section>
 
+<section>
+  <h2 data-en="New to Peptides? Start Here" data-es="¿Nuevo en péptidos? Empieza aquí">New to Peptides? Start Here</h2>
+  <div class="path">
+    <div class="card"><div class="icon">1️⃣</div><h3 data-en="Learn the Basics" data-es="Aprende lo básico">Learn the Basics</h3></div>
+    <div class="card"><div class="icon">2️⃣</div><h3 data-en="Explore Categories" data-es="Explora categorías">Explore Categories</h3></div>
+    <div class="card"><div class="icon">3️⃣</div><h3 data-en="View Guides" data-es="Ver guías">View Guides</h3></div>
+    <div class="card"><div class="icon">4️⃣</div><h3 data-en="Connect on Instagram" data-es="Conecta por Instagram">Connect on Instagram</h3></div>
+  </div>
+</section>
+
 <section id="guides">
   <h2 data-en="Educational Library" data-es="Biblioteca Educativa">Educational Library</h2>
-  <p data-en="Start by exploring the basics of peptide categories and research information."
-     data-es="Empieza explorando los conceptos básicos de las categorías de péptidos e información de investigación.">
-    Start by exploring the basics of peptide categories and research information.
+  <p data-en="Start by exploring peptide categories and research information."
+     data-es="Empieza explorando categorías de péptidos e información de investigación.">
+    Start by exploring peptide categories and research information.
   </p>
 
   <div class="guides">
     <div class="guide">
       <a href="images/peptide-categories-spanish.jpg" target="_blank">
-        <img src="images/peptide-categories-spanish.jpg" alt="Peptide Categories Spanish">
+        <img src="images/peptide-categories-spanish.jpg" alt="Spanish guide">
       </a>
       <div>
         <h3 data-en="Peptide Categories — Spanish" data-es="Categorías de Péptidos — Español">Peptide Categories — Spanish</h3>
@@ -108,7 +133,7 @@ footer{background:#020b1f;color:white;padding:40px 8%;text-align:center}
 
     <div class="guide">
       <a href="images/peptide-categories-english.jpg" target="_blank">
-        <img src="images/peptide-categories-english.jpg" alt="Peptide Categories English">
+        <img src="images/peptide-categories-english.jpg" alt="English guide">
       </a>
       <div>
         <h3 data-en="Peptide Categories — English" data-es="Categorías de Péptidos — Inglés">Peptide Categories — English</h3>
@@ -118,7 +143,7 @@ footer{background:#020b1f;color:white;padding:40px 8%;text-align:center}
 
     <div class="guide">
       <a href="images/why-injection.jpg" target="_blank">
-        <img src="images/why-injection.jpg" alt="Why Injections">
+        <img src="images/why-injection.jpg" alt="Injection guide">
       </a>
       <div>
         <h3 data-en="Why Are Many Peptides Injected?" data-es="¿Por qué muchos péptidos se inyectan?">Why Are Many Peptides Injected?</h3>
@@ -130,23 +155,30 @@ footer{background:#020b1f;color:white;padding:40px 8%;text-align:center}
 
 <section id="categories">
   <h2 data-en="Browse by Category" data-es="Explora por Categoría">Browse by Category</h2>
-  <p data-en="Find information based on each peptide research category."
-     data-es="Encuentra información según cada categoría de investigación de péptidos.">
-    Find information based on each peptide research category.
-  </p>
 
   <div class="categories">
-    <div class="category" data-en="⚖️ Weight Management" data-es="⚖️ Control de Peso">⚖️ Weight Management</div>
-    <div class="category" data-en="💪 Recovery & Performance" data-es="💪 Recuperación y Rendimiento">💪 Recovery & Performance</div>
-    <div class="category" data-en="🧠 Cognitive Support" data-es="🧠 Apoyo Cognitivo">🧠 Cognitive Support</div>
-    <div class="category" data-en="🧬 Longevity & Cellular Health" data-es="🧬 Longevidad y Salud Celular">🧬 Longevity & Cellular Health</div>
-    <div class="category" data-en="🛡️ Immune Support" data-es="🛡️ Apoyo Inmunológico">🛡️ Immune Support</div>
-    <div class="category" data-en="♡ Sexual Wellness" data-es="♡ Bienestar Sexual">♡ Sexual Wellness</div>
+    <div class="category">⚖️<h3 data-en="Weight Management" data-es="Control de Peso">Weight Management</h3></div>
+    <div class="category">💪<h3 data-en="Recovery & Performance" data-es="Recuperación y Rendimiento">Recovery & Performance</h3></div>
+    <div class="category">🧠<h3 data-en="Cognitive Support" data-es="Apoyo Cognitivo">Cognitive Support</h3></div>
+    <div class="category">🧬<h3 data-en="Longevity & Cellular Health" data-es="Longevidad y Salud Celular">Longevity & Cellular Health</h3></div>
+    <div class="category">🛡️<h3 data-en="Immune Support" data-es="Apoyo Inmunológico">Immune Support</h3></div>
+    <div class="category">♡<h3 data-en="Sexual Wellness" data-es="Bienestar Sexual">Sexual Wellness</h3></div>
   </div>
 
   <div class="notice" data-en="All product information is for research and educational purposes only. Not medical advice."
        data-es="Toda la información de productos es solo para fines educativos y de investigación. No es consejo médico.">
     All product information is for research and educational purposes only. Not medical advice.
+  </div>
+</section>
+
+<section class="dark">
+  <h2 data-en="Why Choose Core Peptides Health?" data-es="¿Por qué elegir Core Peptides Health?">Why Choose Core Peptides Health?</h2>
+
+  <div class="features">
+    <div class="card"><h3 data-en="Premium Quality" data-es="Calidad Premium">Premium Quality</h3></div>
+    <div class="card"><h3 data-en="Science Focused" data-es="Enfoque Científico">Science Focused</h3></div>
+    <div class="card"><h3 data-en="Educational Support" data-es="Apoyo Educativo">Educational Support</h3></div>
+    <div class="card"><h3 data-en="Bilingual Resources" data-es="Recursos Bilingües">Bilingual Resources</h3></div>
   </div>
 </section>
 
@@ -176,13 +208,13 @@ footer{background:#020b1f;color:white;padding:40px 8%;text-align:center}
 </footer>
 
 <script>
-function setLanguage(language) {
-  document.querySelectorAll("[data-en]").forEach(element => {
-    element.textContent = element.getAttribute("data-" + language);
+function setLanguage(language){
+  document.querySelectorAll("[data-en]").forEach(element=>{
+    element.textContent=element.getAttribute("data-"+language);
   });
-  localStorage.setItem("language", language);
+  localStorage.setItem("language",language);
 }
-window.onload = function() {
+window.onload=function(){
   setLanguage(localStorage.getItem("language") || "en");
 };
 </script>

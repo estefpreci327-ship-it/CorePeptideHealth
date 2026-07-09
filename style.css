@@ -1,1 +1,45 @@
+.modal{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.92);
+  z-index:2000;
+  text-align:center;
+  padding:30px;
+}
 
+.modal img{
+  max-width:90%;
+  max-height:82vh;
+  border-radius:12px;
+}
+
+.close{
+  position:absolute;
+  top:15px;
+  right:25px;
+  color:white;
+  font-size:40px;
+  cursor:pointer;
+}
+
+.arrow{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  font-size:45px;
+  background:#08bcd4;
+  color:white;
+  border:none;
+  border-radius:50%;
+  width:55px;
+  height:55px;
+}
+
+.left{left:20px}
+.right{right:20px}
+
+#klowCounter{
+  color:white;
+  font-weight:bold;
+}

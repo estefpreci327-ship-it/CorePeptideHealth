@@ -1,0 +1,79 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f4f8fb;
+  color: #102033;
+}
+
+header {
+  background: linear-gradient(135deg, #07172d, #0b4f6c);
+  color: white;
+  text-align: center;
+  padding: 70px 20px;
+}
+
+header h1 {
+  font-size: 42px;
+}
+
+.btn, button {
+  background: #1aa7c7;
+  color: white;
+  border: none;
+  padding: 12px 18px;
+  border-radius: 8px;
+  text-decoration: none;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+nav {
+  text-align: center;
+  padding: 20px;
+}
+
+nav button {
+  margin: 5px;
+}
+
+.products {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 20px;
+  padding: 25px;
+}
+
+.product {
+  background: white;
+  border-radius: 14px;
+  padding: 18px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.product img {
+  width: 100%;
+  height: 180px;
+  object-fit: contain;
+  border-radius: 10px;
+}
+
+.price {
+  font-size: 22px;
+  font-weight: bold;
+  color: #0b4f6c;
+}
+
+.cart, .education {
+  margin: 25px;
+  padding: 25px;
+  background: white;
+  border-radius: 14px;
+}
+
+footer {
+  background: #07172d;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}

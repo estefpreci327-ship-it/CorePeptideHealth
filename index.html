@@ -1,79 +1,138 @@
-<div class="language-switch">
-  <button onclick="setLanguage('en')">English</button>
-  <button onclick="setLanguage('es')">Español</button>
-</div> <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Core Peptides Health</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Core Peptides Health</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-<header>
-  <h1>Core Peptides Health</h1>
-  <p>Premium research peptides and educational resources</p>
-  <a href="#shop" class="btn">Shop Products</a>
+<div class="language-switch">
+  <button onclick="setLanguage('en')">English</button>
+  <button onclick="setLanguage('es')">Español</button>
+</div>
+
+<header class="hero">
+  <h1 data-en="Core Peptides Health" data-es="Core Peptides Health">Core Peptides Health</h1>
+  <p data-en="Educational resources and product information for research peptides."
+     data-es="Recursos educativos e información de productos sobre péptidos de investigación.">
+    Educational resources and product information for research peptides.
+  </p>
+  <div class="hero-buttons">
+    <a href="#learn" class="btn" data-en="Learn About Peptides" data-es="Aprende Sobre Péptidos">Learn About Peptides</a>
+    <a href="#education" class="btn secondary" data-en="View Guides" data-es="Ver Guías">View Guides</a>
+  </div>
 </header>
 
 <nav>
-  <button onclick="filterProducts('all')">All</button>
-  <button onclick="filterProducts('weight')">Weight</button>
-  <button onclick="filterProducts('recovery')">Recovery</button>
-  <button onclick="filterProducts('cognitive')">Cognitive</button>
+  <a href="#learn" data-en="What Are Peptides?" data-es="¿Qué Son los Péptidos?">What Are Peptides?</a>
+  <a href="#education" data-en="Education" data-es="Educación">Education</a>
+  <a href="#contact" data-en="Contact" data-es="Contacto">Contact</a>
 </nav>
 
-<section id="shop" class="products">
-
-  <div class="product weight">
-    <img src="images/semaglutide.jpg" alt="Semaglutide">
-    <h2>Semaglutide</h2>
-    <p class="price">$125</p>
-    <p>Research peptide. For research use only.</p>
-    <button onclick="addToCart('Semaglutide', 125)">Add to Cart</button>
-  </div>
-
-  <div class="product recovery">
-    <img src="images/bpc157.jpg" alt="BPC-157">
-    <h2>BPC-157</h2>
-    <p class="price">$55</p>
-    <p>Research peptide. For research use only.</p>
-    <button onclick="addToCart('BPC-157', 55)">Add to Cart</button>
-  </div>
-
-  <div class="product recovery">
-    <img src="images/tb500.jpg" alt="TB-500">
-    <h2>TB-500</h2>
-    <p class="price">$60</p>
-    <p>Research peptide. For research use only.</p>
-    <button onclick="addToCart('TB-500', 60)">Add to Cart</button>
-  </div>
-
-  <div class="product cognitive">
-    <img src="images/semax.jpg" alt="Semax">
-    <h2>Semax</h2>
-    <p class="price">$45</p>
-    <p>Research peptide. For research use only.</p>
-    <button onclick="addToCart('Semax', 45)">Add to Cart</button>
-  </div>
-
+<section id="learn" class="section">
+  <h2 data-en="What Are Peptides?" data-es="¿Qué son los péptidos?">What Are Peptides?</h2>
+  <p data-en="Peptides are short chains of amino acids. Amino acids are the building blocks of proteins. Peptides are studied because they play roles in communication between cells, metabolism, recovery, hormone signaling, and other biological processes."
+     data-es="Los péptidos son cadenas cortas de aminoácidos. Los aminoácidos son los bloques que forman las proteínas. Los péptidos se estudian porque participan en la comunicación entre células, el metabolismo, la recuperación, la señalización hormonal y otros procesos biológicos.">
+    Peptides are short chains of amino acids. Amino acids are the building blocks of proteins. Peptides are studied because they play roles in communication between cells, metabolism, recovery, hormone signaling, and other biological processes.
+  </p>
 </section>
 
-<section class="cart">
-  <h2>Cart</h2>
-  <ul id="cart-items"></ul>
-  <h3>Total: $<span id="total">0</span></h3>
-  <a class="btn" href="YOUR_GOOGLE_FORM_LINK_HERE" target="_blank">Checkout / Order Form</a>
+<section class="section cards">
+  <div class="card">
+    <h3 data-en="Research & Education" data-es="Investigación y Educación">Research & Education</h3>
+    <p data-en="Learn how different peptide categories are commonly discussed in research."
+       data-es="Aprende cómo se explican comúnmente las diferentes categorías de péptidos en investigación.">
+      Learn how different peptide categories are commonly discussed in research.
+    </p>
+  </div>
+
+  <div class="card">
+    <h3 data-en="Storage Basics" data-es="Conceptos Básicos de Almacenamiento">Storage Basics</h3>
+    <p data-en="Many research peptides require careful storage and handling."
+       data-es="Muchos péptidos de investigación requieren almacenamiento y manejo cuidadoso.">
+      Many research peptides require careful storage and handling.
+    </p>
+  </div>
+
+  <div class="card">
+    <h3 data-en="Product Information" data-es="Información de Productos">Product Information</h3>
+    <p data-en="Browse educational product information and contact us through Instagram."
+       data-es="Explora información educativa de productos y contáctanos por Instagram.">
+      Browse educational product information and contact us through Instagram.
+    </p>
+  </div>
 </section>
 
-<section class="education">
-  <h2>Learn About Peptides</h2>
-  <p>Educational information about peptide categories, storage, and research use.</p>
+<section id="education" class="section education">
+  <h2 data-en="Educational Guides" data-es="Guías Educativas">Educational Guides</h2>
+  <p data-en="Click each image to view it larger."
+     data-es="Haz clic en cada imagen para verla más grande.">
+    Click each image to view it larger.
+  </p>
+
+  <div class="education-grid">
+    <div class="guide">
+      <a href="images/peptide-categories-spanish.jpg" target="_blank">
+        <img src="images/peptide-categories-spanish.jpg" alt="Peptide categories Spanish">
+      </a>
+      <h3 data-en="Peptide Categories — Spanish" data-es="Categorías de Péptidos — Español">Peptide Categories — Spanish</h3>
+    </div>
+
+    <div class="guide">
+      <a href="images/peptide-categories-english.jpg" target="_blank">
+        <img src="images/peptide-categories-english.jpg" alt="Peptide categories English">
+      </a>
+      <h3 data-en="Peptide Categories — English" data-es="Categorías de Péptidos — Inglés">Peptide Categories — English</h3>
+    </div>
+
+    <div class="guide">
+      <a href="images/why-injection.jpg" target="_blank">
+        <img src="images/why-injection.jpg" alt="Why peptides are injected">
+      </a>
+      <h3 data-en="Why Are Most Peptides Injected?" data-es="¿Por Qué Muchos Péptidos se Inyectan?">Why Are Most Peptides Injected?</h3>
+    </div>
+  </div>
+</section>
+
+<section class="section faq">
+  <h2 data-en="Frequently Asked Questions" data-es="Preguntas Frecuentes">Frequently Asked Questions</h2>
+
+  <details>
+    <summary data-en="What does research use only mean?" data-es="¿Qué significa solo para uso de investigación?">What does research use only mean?</summary>
+    <p data-en="It means the product information is presented for educational and research purposes only."
+       data-es="Significa que la información del producto se presenta solo con fines educativos y de investigación.">
+      It means the product information is presented for educational and research purposes only.
+    </p>
+  </details>
+
+  <details>
+    <summary data-en="Where can I ask questions?" data-es="¿Dónde puedo hacer preguntas?">Where can I ask questions?</summary>
+    <p data-en="You can message us directly through Instagram."
+       data-es="Puedes enviarnos un mensaje directamente por Instagram.">
+      You can message us directly through Instagram.
+    </p>
+  </details>
+</section>
+
+<section id="contact" class="section contact">
+  <h2 data-en="Contact Us" data-es="Contáctanos">Contact Us</h2>
+  <p data-en="For questions or product information, message us on Instagram."
+     data-es="Para preguntas o información de productos, mándanos mensaje por Instagram.">
+    For questions or product information, message us on Instagram.
+  </p>
+  <a class="btn" href="https://www.instagram.com/corepeptidehealth" target="_blank"
+     data-en="Message Us on Instagram" data-es="Mándanos Mensaje en Instagram">
+    Message Us on Instagram
+  </a>
 </section>
 
 <footer>
-  <p>For research use only. Not for human consumption.</p>
+  <p data-en="For educational and research information only. Not medical advice."
+     data-es="Solo para información educativa y de investigación. No es consejo médico.">
+    For educational and research information only. Not medical advice.
+  </p>
 </footer>
 
 <script src="script.js"></script>

@@ -1,5 +1,5 @@
 let klowSlide = 1;
-const klowTotal = 14;
+const klowTotal = 17;
 
 function openKlowGallery(){
   document.getElementById("klowModal").style.display = "block";

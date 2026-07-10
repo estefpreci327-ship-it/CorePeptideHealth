@@ -1,1 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Core Peptides Health</title>
 
+  <style>
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f6fbff;
+      color: #10233f;
+      line-height: 1.6;
+    }
+
+    a { text-decoration: none; }
+
+    .site-header {
+      min-height: 90vh;
+      padding: 24px 7% 80px;
+      color: #fff;
+      background:
+        radial-gradient(circle at 80% 30%, rgba(0, 207, 235, .30), transparent 35%),
+        linear-gradient(135deg, #031126, #083d65 60%, #0a9fbd);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .site-header::after {
+      content: "🧬";
+      position: absolute;
+      right: 7%;
+      top: 26%;
+      font-size: 220px;
+      opacity: .14;
+      pointer-events: none;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 18px;
+      flex-wrap: wrap;
+      position: relative;
+      z-index: 2;
+    }
+
+    .brand {
+      font-weight: 800;
+      letter-spacing: 2px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .nav-links a,
+    .language-switch button {
+      color: #fff;
+      background: rgba(255,255,255,.06);
+      border: 1px solid #29d7ef;
+      border-radius: 9px;
+      padding: 9px 13px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .language-switch {
+      display: flex;
+      gap: 8px;
+    }
+
+    .hero {
+      max-width: 720px;
+      margin-top: 110px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .eyebrow {
+      color: #32d9ee;
+      font-weight: 800;
+      letter-spacing: 2px;
+    }
+
+    .hero h1 {
+      font-size: clamp(42px, 7vw, 68px);
+      line-height: 1.05;
+      margin: 16px 0 20px;
+    }
+
+    .hero p {
+      font-size: 20px;
+      max-width: 650px;
+    }
+
+    .btn {
+      display: inline-block;
+      border: 0;
+      border-radius: 10px;
+      padding: 14px 22px;
+      margin: 8px 6px 0 0;
+      background: #11bfd6;
+      color: #fff;
+      font-weight: 800;
+      cursor: pointer;
+      box-shadow: 0 8px 20px rgba(17,191,214,.25);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 1px solid #fff;
+      box-shadow: none;
+    }
+
+    section {
+      padding: 72px 7%;
+      text-align: center;
+    }
+
+    .section-title {
+      margin: 0 0 12px;
+      font-size: clamp(30px, 5vw, 42px);
+      color: #082d58;
+    }
+
+    .section-subtitle {
+      max-width: 760px;
+      margin: 0 auto 38px;
+      color: #5a6b7f;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 24px;
+      max-width: 1120px;
+      margin: 0 auto;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 18px;
+      padding: 26px;
+      box-shadow: 0 10px 28px rgba(4, 36, 66, .10);
+    }
+
+    .guide-card {
+      overflow: hidden;
+      padding: 0;
+      background: #061b38;
+      color: #fff;
+    }
+
+    .guide-card img {
+      width: 100%;
+      height: 320px;
+      object-fit: cover;
+      display: block;
+      background: #0a203f;
+    }
+
+    .guide-card-content {
+      padding: 22px;
+    }
+
+    .dark-section {
+      background: linear-gradient(135deg, #031126, #072c50);
+      color: #fff;
+    }
+
+    .dark-section .section-title,
+    .dark-section .section-subtitle {
+      color: #fff;
+    }
+
+    .dark-card {
+      max-width: 760px;
+      margin: 0 auto;
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 18px;
+      padding: 30px;
+    }
+
+    .notice {
+      max-width: 1000px;
+      margin: 28px auto 0;
+      background: #e7f7fb;
+      color: #0a5470;
+      border-radius: 14px;
+      padding: 18px;
+      font-weight: 700;
+    }
+
+    footer {
+      padding: 38px 7%;
+      background: #020b1f;
+      color: #fff;
+      text-align: center;
+    }
+
+    .floating-instagram {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      z-index: 1200;
+      border-radius: 999px;
+      padding: 13px 17px;
+      background: #11bfd6;
+      color: #fff;
+      font-weight: 800;
+      box-shadow: 0 8px 24px rgba(0,0,0,.24);
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      background: rgba(0,0,0,.94);
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    .modal.open {
+      display: flex;
+    }
+
+    .modal img {
+      max-width: 88vw;
+      max-height: 82vh;
+      border-radius: 12px;
+      box-shadow: 0 12px 40px rgba(0,0,0,.35);
+      background: #fff;
+    }
+
+    .close,
+    .arrow {
+      position: absolute;
+      color: #fff;
+      border: 0;
+      cursor: pointer;
+    }
+
+    .close {
+      top: 18px;
+      right: 24px;
+      background: transparent;
+      font-size: 42px;
+    }
+
+    .arrow {
+      top: 50%;
+      transform: translateY(-50%);
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: #11bfd6;
+      font-size: 36px;
+    }
+
+    .arrow.left { left: 18px; }
+    .arrow.right { right: 18px; }
+
+    #klowCounter {
+      position: absolute;
+      bottom: 18px;
+      color: #fff;
+      font-weight: 800;
+    }
+
+    @media (max-width: 760px) {
+      .site-header { min-height: auto; padding-bottom: 70px; }
+      .site-header::after { font-size: 120px; top: 40%; }
+      nav { justify-content: center; text-align: center; }
+      .hero { margin-top: 70px; text-align: center; }
+      .hero p { font-size: 17px; }
+      .guide-card img { height: 270px; }
+      .arrow { width: 44px; height: 44px; font-size: 30px; }
+    }
+  </style>
+</head>
+
+<body>
+  <a class="floating-instagram"
+     href="https://www.instagram.com/corepeptidehealth?igsh=NTc4MTIwNjQ2YQ=="
+     target="_blank"
+     rel="noopener">
+    Instagram
+  </a>
+
+  <header class="site-header">
+    <nav>
+      <div class="brand">CPH CORE PEPTIDES HEALTH</div>
+
+      <div class="nav-links">
+        <a href="#learn" data-en="Learn" data-es="Aprender">Learn</a>
+        <a href="#guides" data-en="Guides" data-es="Guías">Guides</a>
+        <a href="#klow">KLOW</a>
+        <a href="#categories" data-en="Categories" data-es="Categorías">Categories</a>
+        <a href="#contact" data-en="Contact" data-es="Contacto">Contact</a>
+      </div>
+
+      <div class="language-switch">
+        <button type="button" onclick="setLanguage('en')">EN</button>
+        <button type="button" onclick="setLanguage('es')">ES</button>
+      </div>
+    </nav>
+
+    <div class="hero">
+      <div class="eyebrow"
+           data-en="SCIENCE. QUALITY. CONFIDENCE."
+           data-es="CIENCIA. CALIDAD. CONFIANZA.">
+        SCIENCE. QUALITY. CONFIDENCE.
+      </div>
+
+      <h1 data-en="Advancing research through education and quality."
+          data-es="Impulsando la investigación con educación y calidad.">
+        Advancing research through education and quality.
+      </h1>
+
+      <p data-en="Explore peptide education, research categories, and product information in one bilingual platform."
+         data-es="Explora educación sobre péptidos, categorías de investigación e información de productos en una plataforma bilingüe.">
+        Explore peptide education, research categories, and product information in one bilingual platform.
+      </p>
+
+      <a class="btn" href="#learn"
+         data-en="Start Learning"
+         data-es="Empieza a Aprender">
+        Start Learning
+      </a>
+
+      <a class="btn btn-outline" href="#contact"
+         data-en="Message Us"
+         data-es="Mándanos Mensaje">
+        Message Us
+      </a>
+    </div>
+  </header>
+
+  <section id="learn">
+    <h2 class="section-title"
+        data-en="What Are Peptides?"
+        data-es="¿Qué son los péptidos?">
+      What Are Peptides?
+    </h2>
+
+    <p class="section-subtitle"
+       data-en="Peptides are short chains of amino acids, the building blocks of proteins. Researchers study them because they participate in many biological signaling processes."
+       data-es="Los péptidos son cadenas cortas de aminoácidos, los componentes básicos de las proteínas. Los investigadores los estudian porque participan en muchos procesos de señalización biológica.">
+      Peptides are short chains of amino acids, the building blocks of proteins.
+    </p>
+
+    <div class="grid">
+      <div class="card">
+        <h3 data-en="Research & Education" data-es="Investigación y Educación">
+          Research & Education
+        </h3>
+        <p data-en="Learn how peptide categories are discussed in research."
+           data-es="Aprende cómo se explican las categorías de péptidos en la investigación.">
+          Learn how peptide categories are discussed in research.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3 data-en="Visual Learning" data-es="Aprendizaje Visual">
+          Visual Learning
+        </h3>
+        <p data-en="Explore image guides designed to make complex topics easier to understand."
+           data-es="Explora guías visuales diseñadas para facilitar la comprensión de temas complejos.">
+          Explore image guides designed to make complex topics easier to understand.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3 data-en="Product Information" data-es="Información de Productos">
+          Product Information
+        </h3>
+        <p data-en="Review educational product spotlights and contact us through Instagram."
+           data-es="Consulta productos destacados con fines educativos y contáctanos por Instagram.">
+          Review educational product spotlights and contact us through Instagram.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="guides">
+    <h2 class="section-title"
+        data-en="Educational Library"
+        data-es="Biblioteca Educativa">
+      Educational Library
+    </h2>
+
+    <p class="section-subtitle"
+       data-en="Browse our current educational guides."
+       data-es="Explora nuestras guías educativas actuales.">
+      Browse our current educational guides.
+    </p>
+
+    <div class="grid">
+      <div class="guide-card">
+        <img src="images/peptide-categories-spanish.jpg" alt="Spanish peptide categories guide">
+        <div class="guide-card-content">
+          <h3 data-en="Peptide Categories — Spanish"
+              data-es="Categorías de Péptidos — Español">
+            Peptide Categories — Spanish
+          </h3>
+          <a class="btn" href="images/peptide-categories-spanish.jpg" target="_blank" rel="noopener"
+             data-en="View Guide" data-es="Ver Guía">
+            View Guide
+          </a>
+        </div>
+      </div>
+
+      <div class="guide-card">
+        <img src="images/peptide-categories-english.jpg" alt="English peptide categories guide">
+        <div class="guide-card-content">
+          <h3 data-en="Peptide Categories — English"
+              data-es="Categorías de Péptidos — Inglés">
+            Peptide Categories — English
+          </h3>
+          <a class="btn" href="images/peptide-categories-english.jpg" target="_blank" rel="noopener"
+             data-en="View Guide" data-es="Ver Guía">
+            View Guide
+          </a>
+        </div>
+      </div>
+
+      <div class="guide-card">
+        <img src="images/why-injections.jpg" alt="Why many peptides are injected guide">
+        <div class="guide-card-content">
+          <h3 data-en="Why Are Many Peptides Injected?"
+              data-es="¿Por qué muchos péptidos se inyectan?">
+            Why Are Many Peptides Injected?
+          </h3>
+          <a class="btn" href="images/why-injections.jpg" target="_blank" rel="noopener"
+             data-en="View Guide" data-es="Ver Guía">
+            View Guide
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="klow" class="dark-section">
+    <h2 class="section-title"
+        data-en="KLOW Product Spotlight"
+        data-es="Producto Destacado: KLOW">
+      KLOW Product Spotlight
+    </h2>
+
+    <p class="section-subtitle"
+       data-en="Explore educational information about KLOW and its listed research components."
+       data-es="Explora información educativa sobre KLOW y sus componentes de investigación indicados.">
+      Explore educational information about KLOW and its listed research components.
+    </p>
+
+    <div class="dark-card">
+      <h3>KLOW</h3>
+      <p data-en="A research blend presented with GHK-Cu, TB-500, BPC-157, and KPV. The available gallery currently contains three guide images."
+         data-es="Una mezcla de investigación presentada con GHK-Cu, TB-500, BPC-157 y KPV. La galería disponible actualmente contiene tres imágenes.">
+        A research blend presented with GHK-Cu, TB-500, BPC-157, and KPV.
+      </p>
+
+      <button class="btn" type="button" onclick="openKlowGallery()"
+              data-en="Open KLOW Guide Gallery"
+              data-es="Abrir Galería de Guías KLOW">
+        Open KLOW Guide Gallery
+      </button>
+    </div>
+  </section>
+
+  <section id="categories">
+    <h2 class="section-title"
+        data-en="Browse by Category"
+        data-es="Explora por Categoría">
+      Browse by Category
+    </h2>
+
+    <p class="section-subtitle"
+       data-en="Explore common peptide research categories."
+       data-es="Explora categorías comunes de investigación sobre péptidos.">
+      Explore common peptide research categories.
+    </p>
+
+    <div class="grid">
+      <div class="card"><h3 data-en="⚖️ Weight Management" data-es="⚖️ Control de Peso">⚖️ Weight Management</h3></div>
+      <div class="card"><h3 data-en="💪 Recovery & Performance" data-es="💪 Recuperación y Rendimiento">💪 Recovery & Performance</h3></div>
+      <div class="card"><h3 data-en="🧠 Cognitive Support" data-es="🧠 Apoyo Cognitivo">🧠 Cognitive Support</h3></div>
+      <div class="card"><h3 data-en="🧬 Longevity & Cellular Health" data-es="🧬 Longevidad y Salud Celular">🧬 Longevity & Cellular Health</h3></div>
+      <div class="card"><h3 data-en="🛡️ Immune Support" data-es="🛡️ Apoyo Inmunológico">🛡️ Immune Support</h3></div>
+      <div class="card"><h3 data-en="♡ Sexual Wellness" data-es="♡ Bienestar Sexual">♡ Sexual Wellness</h3></div>
+    </div>
+
+    <div class="notice"
+         data-en="All information is for educational and research purposes only. Not medical advice."
+         data-es="Toda la información es solo para fines educativos y de investigación. No es consejo médico.">
+      All information is for educational and research purposes only. Not medical advice.
+    </div>
+  </section>
+
+  <section id="contact" class="dark-section">
+    <h2 class="section-title"
+        data-en="Questions? Connect With Us"
+        data-es="¿Preguntas? Conéctate con Nosotros">
+      Questions? Connect With Us
+    </h2>
+
+    <p class="section-subtitle"
+       data-en="Message us on Instagram for questions or product information."
+       data-es="Mándanos mensaje por Instagram para preguntas o información de productos.">
+      Message us on Instagram for questions or product information.
+    </p>
+
+    <a class="btn"
+       href="https://www.instagram.com/corepeptidehealth?igsh=NTc4MTIwNjQ2YQ=="
+       target="_blank"
+       rel="noopener"
+       data-en="Message Us on Instagram"
+       data-es="Mándanos Mensaje en Instagram">
+      Message Us on Instagram
+    </a>
+  </section>
+
+  <footer>
+    <p><strong>Core Peptides Health</strong></p>
+    <p data-en="Science. Quality. Confidence."
+       data-es="Ciencia. Calidad. Confianza.">
+      Science. Quality. Confidence.
+    </p>
+    <p data-en="Research use only. Not for human consumption. Not medical advice."
+       data-es="Solo para uso de investigación. No para consumo humano. No es consejo médico.">
+      Research use only. Not for human consumption. Not medical advice.
+    </p>
+  </footer>
+
+  <div id="klowModal" class="modal" aria-hidden="true">
+    <button class="close" type="button" onclick="closeKlowGallery()" aria-label="Close">×</button>
+    <button class="arrow left" type="button" onclick="changeKlowSlide(-1)" aria-label="Previous">‹</button>
+    <img id="klowImage" src="images/klow-guide-1.jpg" alt="KLOW guide page">
+    <button class="arrow right" type="button" onclick="changeKlowSlide(1)" aria-label="Next">›</button>
+    <p id="klowCounter">1 / 3</p>
+  </div>
+
+  <script>
+    function setLanguage(language) {
+      document.querySelectorAll("[data-en]").forEach((element) => {
+        const translatedText = element.getAttribute("data-" + language);
+        if (translatedText) {
+          element.textContent = translatedText;
+        }
+      });
+
+      localStorage.setItem("language", language);
+      document.documentElement.lang = language;
+    }
+
+    let klowSlide = 1;
+    const klowTotal = 3;
+
+    function showKlowSlide() {
+      const image = document.getElementById("klowImage");
+      const counter = document.getElementById("klowCounter");
+
+      image.src = "images/klow-guide-" + klowSlide + ".jpg";
+      counter.textContent = klowSlide + " / " + klowTotal;
+    }
+
+    function openKlowGallery() {
+      const modal = document.getElementById("klowModal");
+      modal.classList.add("open");
+      modal.setAttribute("aria-hidden", "false");
+      showKlowSlide();
+    }
+
+    function closeKlowGallery() {
+      const modal = document.getElementById("klowModal");
+      modal.classList.remove("open");
+      modal.setAttribute("aria-hidden", "true");
+    }
+
+    function changeKlowSlide(direction) {
+      klowSlide += direction;
+
+      if (klowSlide < 1) klowSlide = klowTotal;
+      if (klowSlide > klowTotal) klowSlide = 1;
+
+      showKlowSlide();
+    }
+
+    document.getElementById("klowModal").addEventListener("click", function(event) {
+      if (event.target === this) {
+        closeKlowGallery();
+      }
+    });
+
+    document.addEventListener("keydown", function(event) {
+      const modal = document.getElementById("klowModal");
+      if (!modal.classList.contains("open")) return;
+
+      if (event.key === "Escape") closeKlowGallery();
+      if (event.key === "ArrowLeft") changeKlowSlide(-1);
+      if (event.key === "ArrowRight") changeKlowSlide(1);
+    });
+
+    window.addEventListener("load", function() {
+      setLanguage(localStorage.getItem("language") || "en");
+    });
+  </script>
+</body>
+</html>
